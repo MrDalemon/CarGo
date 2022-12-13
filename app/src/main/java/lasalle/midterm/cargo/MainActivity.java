@@ -60,21 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (txtUsername.getText().toString().matches("")||txtPassword.getText().toString().matches("")){
                     Toast.makeText(this,"Username or Password field empty please fill field and try again",Toast.LENGTH_SHORT).show();
                 }else{
-                    checkAuth.signInWithEmailAndPassword(txtUsername.getText().toString(),txtPassword.getText().toString()).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful()){
-                                Log.d(TAG, "sucessful sign in");
-                                FirebaseUser user = checkAuth.getCurrentUser();
-                                gotonextactivity(user);
-                            }else {
-                                Log.w(TAG, " failed sign in ",task.getException());
-                                Toast.makeText(MainActivity.this,"Login Failed Invalid Username or password",Toast.LENGTH_SHORT).show();
-
-                            }
-
-                        }
-                    });
+                   SigninMethod(txtUsername.getText().toString(),txtPassword.getText().toString());
                 }
                 break;
             case R.id.btnsignup:
@@ -83,13 +69,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
-    
-    private void gotonextactivity(FirebaseUser user) {
 
-        if (user  != null){
+
+
+    private void SigninMethod(String username,String password){
+        checkAuth.signInWithEmailAndPassword(txtUsername.getText().toString(),txtPassword.getText().toString()).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    Log.d(TAG, "sucessful sign in");
+                    FirebaseUser user = checkAuth.getCurrentUser();
+                    gotoallcars();
+                }else {
+                    Log.w(TAG, " failed sign in ",task.getException());
+                    Toast.makeText(MainActivity.this,"Login Failed Invalid Username or password",Toast.LENGTH_SHORT).show();
+
+                }
+
+            }
+        });
+    }
+
+    private void gotoallcars() {
             Intent i = new Intent(this,AllCars.class);
             startActivity(i);
-        }
+
 
     }
 

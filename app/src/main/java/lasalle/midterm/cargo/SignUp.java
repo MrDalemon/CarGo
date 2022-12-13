@@ -23,7 +23,6 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
     private FirebaseAuth checkAuth;
     Button btnSignUp,btnBack;
     TextView txtEmail,txtPassword;
-    private ProgressBar bar;
     private static final String TAG = "EmailPassword";
 
 
@@ -37,13 +36,13 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
     }
 
     private void initialize() {
+
         btnBack = findViewById(R.id.btnBack);
         btnBack.setOnClickListener(this);
         btnSignUp = findViewById(R.id.btnSignup);
         btnSignUp.setOnClickListener(this);
         txtEmail = findViewById(R.id.editTextTextPersonName);
         txtPassword = findViewById(R.id.editTextTextPassword);
-        bar = findViewById(R.id.progressBar);
     }
 
     @Override
@@ -78,12 +77,10 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                     if (task.isSuccessful()){
                         Log.d(TAG, "User Created Successfully");
                         FirebaseUser user= checkAuth.getCurrentUser();
-                            bar.setVisibility(View.GONE);
-                        gotonextactivity(user);
+                        gotonextactivity();
                     }else {
                         Log.w(TAG, " failed sign in ",task.getException());
-                        Toast.makeText(SignUp.this,"Login Failed Invalid Username or password",Toast.LENGTH_SHORT).show();
-                        gotonextactivity(null);
+                        Toast.makeText(SignUp.this,"User Creation failed (most probably due to password length",Toast.LENGTH_SHORT).show();
 
                     }
                 }
@@ -91,12 +88,10 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
 
     }
 
-    private void gotonextactivity(FirebaseUser user) {
+    private void gotonextactivity() {
 
-        if (user  != null){
             Intent i = new Intent(this,AllCars.class);
             startActivity(i);
-        }
 
     }
 }
