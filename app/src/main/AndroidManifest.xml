@@ -3,8 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="lasalle.midterm.cargo">
 
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
     <application
         android:allowBackup="true"
+        android:usesCleartextTraffic="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -13,6 +16,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cargo"
         tools:targetApi="31">
+        <activity
+            android:name=".AllCars"
+            android:exported="false" />
+        <activity
+            android:name=".SignUp"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

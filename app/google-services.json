@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "142614793224",
+    "project_id": "cargo-868f9",
+    "storage_bucket": "cargo-868f9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:142614793224:android:936ac55eea83824178d5bd",
+        "android_client_info": {
+          "package_name": "lasalle.midterm.cargo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "142614793224-vipi9jbkc2ru9tfssjnv085l4rs3er6o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAs2ZWesHzkuVRc4YF_TwA3Ls2fWz1x1Lo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "142614793224-vipi9jbkc2ru9tfssjnv085l4rs3er6o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
