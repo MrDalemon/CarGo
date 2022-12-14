@@ -44,12 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        FirebaseUser currentUser = checkAuth.getCurrentUser();
 
-    }
 
     @Override
     public void onClick(View view) {
