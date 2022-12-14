@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -54,6 +55,8 @@ public class AllCars extends AppCompatActivity implements View.OnClickListener {
         btnLogout.setOnClickListener(this);
         btnShowallrentals = findViewById(R.id.btnShowRentals);
         btnShowallrentals.setOnClickListener(this);
+        // for spefic intent
+        Intent r = new Intent(this,AddRentals.class);
 
         // initialise list view
         listAllCars = (ListView) findViewById(R.id.listAllCars);
@@ -79,6 +82,18 @@ public class AllCars extends AppCompatActivity implements View.OnClickListener {
         };
             listAllCars.setAdapter(adapter);
 
+            listAllCars.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    Log.d("do you work", "onItemClick: "+i);
+                    i++;
+                    r.putExtra("carID",i);
+                    startActivity(r);
+
+                }
+            });
+
+            // check if user is admin
             if (currentUser.getEmail().equals("admin@gmail.com")){
                 btnAddVehicule.setVisibility(View.VISIBLE);
                 btnShowallrentals.setVisibility(View.VISIBLE);

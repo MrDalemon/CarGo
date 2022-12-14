@@ -1,16 +1,15 @@
 package lasalle.midterm.cargo;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -79,7 +78,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                         FirebaseUser user= checkAuth.getCurrentUser();
                         gotonextactivity();
                     }else {
-                        Log.w(TAG, " failed sign in ",task.getException());
+                        Log.w(TAG, " failed sign up",task.getException());
                         Toast.makeText(SignUp.this,"User Creation failed (most probably due to password length",Toast.LENGTH_SHORT).show();
 
                     }

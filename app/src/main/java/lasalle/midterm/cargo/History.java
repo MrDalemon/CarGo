@@ -1,8 +1,8 @@
 package lasalle.midterm.cargo;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class History extends AppCompatActivity {
 
@@ -11,4 +11,6 @@ public class History extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
     }
+
+    // todo flitered list view for each user
 }
